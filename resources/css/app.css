@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* scroll-container scrollbar verstecken */
+.scroll-container {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* scrollbar sichtbar, wenn .scrolling */
+.scroll-container.scrolling {
+  scrollbar-width: thin;
+}
+.scroll-container.scrolling::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+}
+.scroll-container.scrolling::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-md;
+}

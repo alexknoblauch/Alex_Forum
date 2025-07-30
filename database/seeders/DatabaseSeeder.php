@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CookingSeeder::class);
         $this->call(TravelSeeder::class);
+        $this->call(AuthorSeeder::class);
+        $this->call(BookSeeder::class);
 
     }
 }

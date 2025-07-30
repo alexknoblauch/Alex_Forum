@@ -31,3 +31,4 @@ test('user can reach Trip Post route', function(){
     $respone->assertViewIs('travel.store');
 });
 
+ 

@@ -17,9 +17,10 @@ Laravel mit Blade scheint mir ein optimaler Einstieg ins Backend durch eine gros
 3. 🛠️ Installation / Setup
 
 
+
 5. 📓 Lern-Tagebuch 
 
-vorher: #
+vorher: 
 -Model und Migrationen erstellen aller Tables
 -Welcome Page
 -Routes & Controller erstellen
@@ -31,7 +32,6 @@ vorher: #
 25.07 ich implemnetierte Route und FeatureTest, das habe ich seit einem Monat nicht mehr gemacht.
     ich entschied mich für Pest style.
     den Class based approach schaute ich mir nochmals kurz durch.
-
-kleine synthax schwirigkeiten aber das konstrukt sass grössten Teils noch fest.
+    kleine synthax schwirigkeiten aber das konstrukt sitzt grössten Teils fest.
 
 
