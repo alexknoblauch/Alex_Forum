@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('gemeindes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->morphs('commentable');
-            $table->text('comment');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('travel_id')->constrained()->cascadeOnDelete();
+            $table->string('gemeinde')->unique();
 
-            $table->index('user_id');
+            $table->index('travel_id');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('gemeindes');
     }
 };

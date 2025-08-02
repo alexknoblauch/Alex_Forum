@@ -4,15 +4,15 @@
 
     <div class="grid grid-cols-[1fr] md:grid-cols-[3fr_7fr] px-4 md:overflow-y-hidden">
         <div class="mb-2 mt-12 flex flex-col gap-2 md:border-r md:border-gray-300 order-2 md:order-1 max-h-[calc(100vh-3rem)] md:overflow-y-auto overflow-y-visible scroll-container ">
-                @foreach ($cookings as $cooking)
-                    <a href="{{route('cooking.show', ['slug' => Str::slug($cooking->title),])}}" class="cursor-pointer hover:bg-gray-200 p-4 py-4 grid grid-cols-[8fr_2fr] mt-4 md:bg-inherit bg-[#EAECEF] rounded-[9px]">
+                @foreach ($tasks as $task)
+                    <a href="{{route('cooking.show', ['slug' => Str::slug($task->title),])}}" class="cursor-pointer hover:bg-gray-200 p-4 py-4 grid grid-cols-[8fr_2fr] mt-4 md:bg-inherit bg-[#EAECEF] rounded-[9px]">
                             <div>
                                 <div class="flex flex- font-semibold text-lg md:text-base">
                                     <svg class="h-4 w-4 mr-2 opacity-60 am:mt-4 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M416 0C400 0 288 32 288 176l0 112c0 35.3 28.7 64 64 64l32 0 0 128c0 17.7 14.3 32 32 32s32-14.3 32-32l0-128 0-112 0-208c0-17.7-14.3-32-32-32zM64 16C64 7.8 57.9 1 49.7 .1S34.2 4.6 32.4 12.5L2.1 148.8C.7 155.1 0 161.5 0 167.9c0 45.9 35.1 83.6 80 87.7L80 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-224.4c44.9-4.1 80-41.8 80-87.7c0-6.4-.7-12.8-2.1-19.1L191.6 12.5c-1.8-8-9.3-13.3-17.4-12.4S160 7.8 160 16l0 134.2c0 5.4-4.4 9.8-9.8 9.8c-5.1 0-9.3-3.9-9.8-9L127.9 14.6C127.2 6.3 120.3 0 112 0s-15.2 6.3-15.9 14.6L83.7 151c-.5 5.1-4.7 9-9.8 9c-5.4 0-9.8-4.4-9.8-9.8L64 16zm48.3 152l-.3 0-.3 0 .3-.7 .3 .7z"/></svg>
-                                    <h3><span class="text-gray-500 text-lg md:text-base ">{{$loop->count - $loop->index}}.</span>    {{ Str::limit($cooking->title, 24) }}</h3>
+                                    <h3><span class="text-gray-500 text-lg md:text-base ">{{$loop->count - $loop->index}}.</span>    {{ Str::limit($task->title, 24) }}</h3>
                                 </div>
                                 <div>
-                                    <p class="text-gray-500 md:text-base md:text-[0.6rem] ml-6">{{$cooking->user->name}}</p>
+                                    <p class="text-gray-500 md:text-base md:text-[0.6rem] ml-6">{{$task->user->name}}</p>
                                 </div>
                             </div>
                                 <div class="h-14 w-14 rounded-full p-[2px] bg-gradient-to-tr from-blue-400 to-green-500">
@@ -34,25 +34,25 @@
         <div class="flex flex-col items-center justify-center mb-8 mt-16">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-gray-900 text-center relative mb-6">
                 <span class="inline-block relative">
-                    <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-11/12 h-2 bg-green-500 rounded-lg z-0"></span>
-                    <span class="relative z-10">Kochrezepte</span>
+                    <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-11/12 h-2 bg-red-500 rounded-lg z-0"></span>
+                    <span class="relative z-10">Helfende Hand</span>
                 </span>
                 <br>
                 <span class="block mt-3 text-base sm:text-xl md:text-2xl text-gray-600 font-light">
-                    für <span class="italic text-blue-500">mehr Geschmack</span> im Alltag.
+                    <p>zu zweit gehts besser als allein.</p>
                 </span>
             </h2>
             </div>
-            <p class="italic mx-4 -mt-4 md:-mt-0 md:block text-center text-sm md:text-m">Teilen auch Sie Ihre liebsten Rezepte mit Anderen. <br> <span class="md:block hidden">Unser aller Liebling, das Essen, kann einen schwungvollen Twist in den Tag bringen.</span></p>
+            <p class="italic mx-4 -mt-4 md:-mt-0 md:block text-center text-sm md:text-m">Bewegung hält frisch! Freiwilligenarbeit, Organisationen oder auch Privat. Hier können Sie ihr Vorhaben stellen und eventuell schon bald eine Helfende Hand finden.</p>
                 <div class="flex flex-row align-center justify-center mt-16 p-4 -ml-8  md:-ml-0">
-                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10" src="{{asset('imgs/cooking/photo-1432139509613-5c4255815697.avif')}}" alt="">
-                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/cooking/photo-1473093295043-cdd812d0e601.avif')}}" alt="">
-                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/cooking/photo-1507273026339-31b655f3752d.avif')}}" alt="">
-                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/cooking/10.avif')}}" alt="">
-                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/cooking/photo-1567056602606-6172dedda3ac.avif')}}" alt="">
-                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/cooking/premium_photo-1673809798703-6082a015f931.avif')}}" alt="">
-                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/cooking/11.avif')}}" alt="">
-                    <div class="absolute md:bottom-10 bottom-40 w-[70%] md:w-[50%] h-20 bg-green-300 rounded-full opacity-50 blur-2xl md:blur-3xl z-0 overflow-x-hidden"></div>
+                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10" src="{{asset('imgs/helpinghand/photo-1463587480257-3c60227e1e52.avif')}}" alt="">
+                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/helpinghand/photo-1543248939-4296e1fea89b.avif')}}" alt="">
+                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/helpinghand/photo-1570913174069-06485c64f8e9.avif')}}" alt="">
+                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/helpinghand/photo-1594498653385-d5172c532c00.avif')}}" alt="">
+                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/helpinghand/photo-1751486289943-0428133c367c.avif')}}" alt="">
+                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/helpinghand/photo-1590172205940-5b6eedf7ec82.avif')}}" alt="">
+                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/helpinghand/premium_photo-1661407381284-25d8402c9706.avif')}}" alt="">
+                    <div class="absolute md:bottom-10 bottom-40 w-[70%] md:w-[50%] h-20 bg-red-300 rounded-full opacity-50 blur-2xl md:blur-3xl z-0 overflow-x-hidden"></div>
 
             </div>
         </div>

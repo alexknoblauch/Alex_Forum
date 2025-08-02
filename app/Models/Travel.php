@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\Comment;
+use App\Models\Gemeinde;
  
 
 class Travel extends Model
@@ -16,6 +19,12 @@ class Travel extends Model
     }
 
     public function comments(){
-        return $this->morpthMany(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable');
     }
+
+    public function gemeinde(){
+        return $this->belongsTo(Gemeinde::class);
+    }
+
+ 
 }

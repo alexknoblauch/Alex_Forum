@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Comment extends Model
 {
-    protected $guarded = [];
     use HasFactory;
+    protected $guarded = [];
 
     public function commentable(){
         return $this->morphTo();
+    } 
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
