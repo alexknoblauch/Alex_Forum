@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('gemeindes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('travel_id')->constrained()->cascadeOnDelete();
-            $table->string('gemeinde')->unique();
+            $table->string('gemeinde');
 
-            $table->index('travel_id');
         });
     }
 

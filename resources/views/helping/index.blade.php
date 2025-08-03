@@ -5,17 +5,16 @@
     <div class="grid grid-cols-[1fr] md:grid-cols-[3fr_7fr] px-4 md:overflow-y-hidden">
         <div class="mb-2flex flex-col gap-2 md:border-r md:border-gray-300 order-2 md:order-1 max-h-[calc(100vh-3rem)] md:overflow-y-auto overflow-y-visible scroll-container ">
                 @foreach ($tasks as $task)
-                    <a href="{{route('cooking.show', ['slug' => Str::slug($task->title),])}}" class="cursor-pointer hover:bg-gray-200 p-4 py-4 grid grid-cols-[8fr_2fr] mt-4 md:bg-inherit bg-[#EAECEF] rounded-[9px]">
+                    <a href="{{route('helping.show', ['slug' => Str::slug($task->title),])}}" class="cursor-pointer hover:bg-gray-200 p-4 py-4 grid grid-cols-[8fr_2fr] mt-4 md:bg-inherit bg-[#EAECEF] rounded-[9px]">
                             <div>
                                 <div class="flex flex- font-semibold text-lg md:text-base">
                                     <svg class="h-6 w-6 mr-2 opacity-60 am:mt-4 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L512 316.8 512 128l-.7 0-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48 0 224 28.2 0 91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123zM16 128c-8.8 0-16 7.2-16 16L0 352c0 17.7 14.3 32 32 32l32 0c17.7 0 32-14.3 32-32l0-224-80 0zM48 320a16 16 0 1 1 0 32 16 16 0 1 1 0-32zM544 128l0 224c0 17.7 14.3 32 32 32l32 0c17.7 0 32-14.3 32-32l0-208c0-8.8-7.2-16-16-16l-80 0zm32 208a16 16 0 1 1 32 0 16 16 0 1 1 -32 0z"/></svg>
                                     <h3><span class="text-gray-500 text-lg md:text-base ">{{$loop->count - $loop->index}}.</span>    {{ Str::limit($task->title, 40) }}</h3>
                                 </div>
                                 <div>
-                                    <p class="text-gray-500 md:text-base md:text-[0.6rem] ml-6">{{$task->user->name}}</p>
+                                    <p class="text-gray-500 md:text-base md:text-[0.6rem] ml-6"><b class="text-gray-700">{{$task->canton}}</b> / {{$task->gemeinde->gemeinde}} </p>
                                 </div>
-                            </div>
-                                   
+                            </div>                  
                     </a>
                 @endforeach
             <div>
@@ -62,7 +61,7 @@
                 @csrf
                 <div class="flex items-center justify-between mt-4">
                     <div class="flex flex-row imtes-center ustify-center gap-4 w-[100%]">
-                        <label class="flex items-center justify-center text-[20px] md:text-xl" for="title">Titel:</label>
+                        <label class="travel-title flex items-center justify-center text-[20px] md:text-xl" for="title">Titel:</label>
                         <input  class="rounded-xl outline-none focus:ring-0 focus:outline-none focus:border-gray-500 w-[70%]" name="title" id="title" type="text">
                     </div>
                     <div  class="flex flex-row imtes-center ustify-center gap-4 w-[70%]">
@@ -101,14 +100,14 @@
                 <div class="mt-4 h-[100%]">
                     <div class="flex justify-between flex-row items-center justify-left mb-2">
                         <div class="flex items-center justify-between">
-                            <svg class="md:h-5 md:w-5 mr-2 w-15 -mt-4 sm:-mt-0"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M560 160A80 80 0 1 0 560 0a80 80 0 1 0 0 160zM55.9 512l325.2 0 75 0 122.8 0c33.8 0 61.1-27.4 61.1-61.1c0-11.2-3.1-22.2-8.9-31.8l-132-216.3C495 196.1 487.8 192 480 192s-15 4.1-19.1 10.7l-48.2 79L286.8 81c-6.6-10.6-18.3-17-30.8-17s-24.1 6.4-30.8 17L8.6 426.4C3 435.3 0 445.6 0 456.1C0 487 25 512 55.9 512z"/></svg>
+                            <svg class="md:h-7 md:w-7 mr-2 w-15 -mt-4 sm:-mt-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L512 316.8 512 128l-.7 0-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48 0 224 28.2 0 91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123zM16 128c-8.8 0-16 7.2-16 16L0 352c0 17.7 14.3 32 32 32l32 0c17.7 0 32-14.3 32-32l0-224-80 0zM48 320a16 16 0 1 1 0 32 16 16 0 1 1 0-32zM544 128l0 224c0 17.7 14.3 32 32 32l32 0c17.7 0 32-14.3 32-32l0-208c0-8.8-7.2-16-16-16l-80 0zm32 208a16 16 0 1 1 32 0 16 16 0 1 1 -32 0z"/></svg>
                             <label class="md:text-xl" for="description">Beschreibung:</label><br>
                         </div>
                         <div class="flex gap-2">
                             <label class="md:text-xl" for="gemeinde">Gemeinde:</label><br>
                             <div class="relative">
                                 <input autocomplete="off" class="gemeinde-input rounded-xl outline-none focus:ring-0 focus:outline-none focus:border-gray-500 w-[12.5rem] w-full h-full" name="gemeinde" id="gemeinde" type="text">
-                            <div class="gemeinde-preview absolute top-[3rem] left-[0%] rounded-l author-results bg-[#F2F2F2]"></div>
+                            <div class="gemeinde-output absolute top-[3rem] left-[0%] rounded-l author-results bg-[#F2F2F2]"></div>
                             </div>
                         </div>
                     </div>
@@ -127,6 +126,11 @@
         const overlay = document.querySelector('.overlay')
         const addRecipe = document.querySelector('.btn-addRecipe')
         const xModal = document.querySelector('.x-modal')
+        const gemeindeInput = document.querySelector('.gemeinde-input')
+        const gemeindeOutput = document.querySelector('.gemeinde-output')
+        const travelTitle = document.querySelector('.travel-title')
+        const gemeinden = @json($gemeinden);
+        const titles = @json($titles);
         
         function openColoseModal() {
             modal.classList.toggle('hidden')
@@ -147,6 +151,35 @@
                 openColoseModal()
             }
         })
+
+
+
+        function gemeindePreview(inputText){
+            const regex = new RegExp(`^(${inputText})`, 'gi')
+            const gemeindenamen = gemeinden.map(gemeinde => gemeinde.gemeinde)
+
+            const matches = gemeindenamen.filter(gemeinde => {
+                return gemeinde.match(regex)
+            })
+
+
+            if(!inputText){
+                gemeindeOutput.innerHTML = ''
+                return
+            }
+
+            const markup = matches.map(gemeinde => {
+                const highlighted = gemeinde.replace(regex, '<b>$1</b>')
+                return `<div class="px-2 py-1 hover:bg-gray-200 cursor-pointer rounded-l" data-id='${gemeinde}'>${highlighted}</div>`}).join('');
+
+            gemeindeOutput.innerHTML = markup
+        }
+
+        gemeindeInput.addEventListener('input', () => gemeindePreview(gemeindeInput.value))
+
+
+      
+
         </script>
         </body>
 </x-app-layout>

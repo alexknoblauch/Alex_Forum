@@ -62,7 +62,6 @@
                     <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4   "  src="{{asset('imgs/books/sofiesWelt.jpeg')}}" alt="Bild einer Buchempfehlung">
                     <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4   "  src="{{asset('imgs/books/derAlchimist.jpg')}}" alt="Bild einer Buchempfehlung">
                     <div class="absolute md:bottom-10 bottom-20 w-[70%] md:w-[50%] h-20 bg-violet-500 rounded-full opacity-40 blur-3xl z-0 overflow-x-hidden"></div>
-
                 </div>
             </div>
         </div>

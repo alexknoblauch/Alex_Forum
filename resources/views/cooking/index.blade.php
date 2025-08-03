@@ -109,52 +109,9 @@
 
         </div>
     </div>
-    </body>
     <script>
-        const modal = document.querySelector('.modal')
-        const overlay = document.querySelector('.overlay')
-        const addRecipe = document.querySelector('.btn-addRecipe')
-        const xModal = document.querySelector('.x-modal')
-        const inputTitle = document.querySelector('.input-title')
-        const inputTitleError = document.querySelector('.input-title-error')
-        
-        const cookingTitles = @json($cookings)  
-         
-
-        function openColoseModal() {
-            modal.classList.toggle('hidden')
-            overlay.classList.toggle('hidden')
-
-            if(!modal.classList.contains('hidden')){
-                document.body.style.overflow = 'hidden'
-            } else {
-                document.body.style.overflow = ''
-            }
-        }
-
-        addRecipe.addEventListener('click', openColoseModal)
-        xModal.addEventListener('click', openColoseModal)
-
-        document.addEventListener('keydown', function(e){
-            if(e.key === 'Escape' && !modal.classList.contains('hidden')){
-            openColoseModal()
-            }
-        })
-
-        inputTitle.addEventListener('change', function(e){
-            const input = e.target.value.trim()
-                inputTitleError.innerHTML = ''
-                inputTitle.classList.remove('border-red-500')
-        
-            const exists = Object.values(cookingTitles).some(c => c.title === input)
-
-            if(exists){
-                inputTitleError.innerHTML = '<p>Titel schon vergeben</p>'
-                inputTitle.classList.add('border-red-500')
-            }
-        })
-
-        
-
-    </script>
+        window.cookingTitles = @json($cookings);  
+        </script>
+    <script type="module" src="/js/main.js"></script>
+</body>
 </x-app-layout>

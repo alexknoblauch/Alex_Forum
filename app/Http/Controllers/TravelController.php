@@ -14,9 +14,8 @@ use Illuminate\Support\Str;
 class TravelController extends Controller
 {
     public function index(){
-
         $travels = Travel::all()->reverse();
-        $gemeinden = Gemeinde::all(['id', 'gemeinde']);
+        $gemeinden = Gemeinde::all();
 
         return view('travel.index', compact('travels', 'gemeinden'));
     }

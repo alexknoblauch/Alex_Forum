@@ -25,6 +25,7 @@ Route::get('/buchtipps/{slug}', [BookController::class, 'show'])->name('book.sho
 Route::get('/tricks-und-tipps', [TrickController::class, 'index'])->name('trick.index');
 
 Route::get('/helfende-hand', [HelpingController::class, 'index'])->name('helping.index');
+Route::get('/helfende-hand/{slug}', [HelpingController::class, 'show'])->name('helping.show');
 
 Route::middleware('auth')->group(function () {
     Route::post('/kochtipps/post', [CookingController::class, 'store'])->name('cooking.store');

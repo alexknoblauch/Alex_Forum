@@ -15,4 +15,8 @@ class Gemeinde extends Model
     public function travel(){
         return $this->hasMany(Travel::class);
     }
+
+    public function helpinghand(){
+        return $this->hasMany(Helpinghand::class);
+    }
 }

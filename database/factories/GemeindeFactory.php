@@ -17,8 +17,8 @@ class GemeindeFactory extends Factory
     public function definition(): array
     {
         return [
-            'gemeinde' => $this->faker->randomElement(['Wohlen', 'Waltenschwil', 'Büttikon', 'Zufikon']),
-            'travel_id' => $this->faker->numberBetween(1,10)
+            'gemeinde' => $this->faker->randomElement(['Wohlen', 'Waltenschwil', 'Büttikon', 'Zufikon', 'Anglikon']),
+
         ];
     }
 }

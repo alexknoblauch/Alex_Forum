@@ -24,4 +24,9 @@ class Helpinghand extends Model
     public function comments(){
         return $this->morpthMany(Comment::class, 'commentable');
     }
+
+    public function gemeinde(){
+        return $this->belongsTo(Gemeinde::class, 'gemeinde_id');
+    }
+    
 }

@@ -45,6 +45,9 @@
       <!-- Comments: SECOND on small screens -->
       <div class="max-h-[80vh] md:overflow-y-auto scroll-container p-4 order-2 md:order-1 md:col-start-1">
         <textarea class="bg-green-100 hover:bg-white mb-12 block md:hidden bottom-1 left-2 md:text-[0.8rem] w-[100%] h-[6rem] rounded-xl bg-gray-100 outline-none focus:ring-0 focus:border-black" placeholder="Dein Kommentar ..."></textarea>
+        @if($comments->isEmpty())
+          <p class="italic text-center text-[0.9rem] mt-4 mb-8">Noch keine Kommentare vorhanden... <br> Sei der Erste!</p>
+        @endif
         @foreach($comments as $comment)
             @if($comments->isEmpty())
                 <p>noch keine Kommentare...</p>

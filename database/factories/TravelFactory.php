@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
+use App\Models\Gemeinde;
 use Illuminate\Support\Str;
 
 
@@ -25,8 +26,8 @@ class TravelFactory extends Factory
             'title' => $title,
             'title_slug' => Str::slug($title),
             'user_id' => User::factory(),
+            'gemeinde_id' => Gemeinde::factory(),
             'canton' => $this->faker->randomElement(['AG', 'ZH', 'BE', 'BS', 'GR', 'LU', 'OW', 'NW']),
-            'gemeinde' => $this->faker->paragraph(1),
             'description' => $this->faker->sentence(10)
         ];
     }

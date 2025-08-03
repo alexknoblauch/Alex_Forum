@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('Helpinghands', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('gemeinde_id')->constrained('gemeindes');
             $table->string('title');
-            $table->string('type');
-            $table->string('location');
+            $table->string('title_slug');
+            $table->string('type')->nullable();
             $table->string('canton');
             $table->text('description');
             

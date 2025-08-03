@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('travel', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');;
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('gemeinde_id')->constrained('gemeindes');
             $table->string('title');
             $table->string('title_slug');
             $table->string('canton');
-            $table->string('gemeinde');
             $table->text('description');
             $table->string('image')->nullable();
 
