@@ -12,6 +12,7 @@ use App\Models\Gemeinde;
 class Travel extends Model
 {
 
+    protected $guarded = [];
     use HasFactory;
 
     public function user(){

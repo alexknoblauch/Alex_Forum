@@ -7,7 +7,7 @@
 
       <!-- Main Content: FIRST on small screens -->
       <div class="order-1 md:order-2 md:col-start-2 p-4 mt-16">
-        <div class="flex flex-row mb-4">
+        <div class="flex justify-between flex-row mb-4">
           <div class="md:flex flex-col items-start justify-start">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-gray-900 text-center relative mb-6 mt-8">
                 <span class="inline-block relative">
@@ -25,7 +25,7 @@
           </div>
 
           <div class="flex justify-center">
-            <img class="ml-12 h-40 w-40  rounded-xl shadow" src="{{ asset('imgs/cooking/photo-1507273026339-31b655f3752d.avif') }}" alt="Foto des Gerichts">
+            <img class="md:mr-12 h-40 w-40  rounded-xl shadow" src="{{ asset('imgs/cooking/photo-1507273026339-31b655f3752d.avif') }}" alt="Foto des Gerichts">
           </div>
         </div>
 
@@ -37,8 +37,13 @@
       </div>
 
       <!-- Comments: SECOND on small screens -->
-      <div class="max-h-[80vh] md:overflow-y-auto scroll-container p-4 order-2 md:order-1 md:col-start-1">
+      <div class="max-h-[80vh] md:overflow-y-auto scroll-container p-4 order-2 md:order-1 md:col-start-1 md:border-r md:border-gray-300"> 
         <textarea class="bg-green-100 hover:bg-white mb-12 block md:hidden bottom-1 left-2 md:text-[0.8rem] w-[100%] h-[6rem] rounded-xl bg-gray-100 outline-none focus:ring-0 focus:border-black" placeholder="Dein Kommentar ..."></textarea>
+        @if($comments->isEmpty())
+          <p class="italic text-center text-[0.9rem] mt-4 mb-8">Noch keine Kommentare vorhanden... <br> Sei der Erste!</p>
+              
+        @endif
+
         @foreach($comments as $comment)
           <div class="hover:bg-gray-200 p-2 rounded-[9px] bg-[#EAECEF] flex flex-col gap-2 mb-4">
             <div class="flex items-center justify-between">

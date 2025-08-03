@@ -50,8 +50,8 @@ class User extends Authenticatable
         return $this->hasMany(Helpinghand::class);
     }
 
-    public function trips(){
-        return $this->hasMany(Trip::class);
+    public function travels(){
+        return $this->hasMany(Travel::class);
     }
 
     public function cookings(){
@@ -61,6 +61,5 @@ class User extends Authenticatable
     public function books(){
         return $this->hasMany(Book::class);
     }
-
 
 }

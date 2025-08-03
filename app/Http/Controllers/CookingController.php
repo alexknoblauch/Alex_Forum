@@ -15,7 +15,6 @@ class CookingController extends Controller
     
     public function index($slug = null){
         $cookings = Cooking::all()->reverse();  
-
         return view('cooking.index', compact('cookings'));
     }
 
@@ -28,19 +27,25 @@ class CookingController extends Controller
     }
 
     public function store(Request $request){
-        $title = $request->title;
 
+        ##HTTP request
+        $title = $request->title;
         $data = $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'duration' => ['required', 'in:5,10,15,20,25,30,35,40,45,50,55,60,65,70,75'],
             'description' => ['required','string', 'max:1000'],
         ]);
 
+        if(Cooking::where('title', $data['title'])->exists()){
+            return redirect()->route('cooking.index')->with('error', 'Dieser Titel existiert bereits.');
+        } 
+
         $data['title_slug'] = Str::slug($title);
         Auth::user()->cookings()->create($data);
-        $cookings = Cooking::all()->reverse();  
+        $cookings = Cooking::all()->reverse(); 
 
-        return view('cooking.index', compact('cookings'));
+        ##HTTP response
+        return redirect()->route('cooking.index');
     }
 
 

@@ -22,11 +22,14 @@ Route::get('ausflug/{slug}', [TravelController::class, 'show'])->name('travel.sh
 Route::get('/buchtipps', [BookController::class, 'index'])->name('book.index');
 Route::get('/buchtipps/{slug}', [BookController::class, 'show'])->name('book.show');
 
+Route::get('/tricks-und-tipps', [TrickController::class, 'index'])->name('trick.index');
+
 Route::get('/helfende-hand', [HelpingController::class, 'index'])->name('helping.index');
 
 Route::middleware('auth')->group(function () {
     Route::post('/kochtipps/post', [CookingController::class, 'store'])->name('cooking.store');
     Route::post('/ausflug/post', [TravelController::class, 'store'])->name('travel.store');
+    Route::post('/helfende-hand/post', [HelpingController::class, 'store'])->name('helping.store');
 });
 
 

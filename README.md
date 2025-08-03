@@ -11,27 +11,24 @@ Laravel mit Blade scheint mir ein optimaler Einstieg ins Backend durch eine gros
 
 -User Login (Laravel Default)
 -Welcome Page
--Kochrezept Page (App like)
--Ausflug Page (App like)
+-Kochrezept Page (App style)
+-Ausflug Page (App style)
+-Helfende Hand Page (App style)
+-Buchtipps Page (App style)
+
 
 3. 🛠️ Installation / Setup
 
 
 
-5. 📓 Lern-Tagebuch 
+5. 📓 gelernetes 
 
-vorher: 
--Model und Migrationen erstellen aller Tables
--Welcome Page
--Routes & Controller erstellen
+- DB search Funktion und Resultate in UI abbilden inkl. Letter Highlighting.
 
-19.07 erstellen Cooking page. Cooler Schriftzug von ChatGPT. Selber Bilder übereinandergelappt dargestellt.
 
-22.07 Cooking Page finaler Schliff auf Mobile, html verschieben, etwas mehr UI inspiration aus Google.
+5. ✔ Vertieft 
 
-25.07 ich implemnetierte Route und FeatureTest, das habe ich seit einem Monat nicht mehr gemacht.
-    ich entschied mich für Pest style.
-    den Class based approach schaute ich mir nochmals kurz durch.
-    kleine synthax schwirigkeiten aber das konstrukt sitzt grössten Teils fest.
-
+- Factorys & Seeders
+- Tests
+- Relationen & Modelle
 

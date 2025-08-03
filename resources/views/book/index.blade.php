@@ -2,8 +2,8 @@
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex  items-center lg:justify-center flex-col overflow-x-hidden">
        @include('layouts.header')
 
-    <div class="grid grid-cols-[1fr] md:grid-cols-[3fr_7fr] px-4 md:overflow-y-hidden">
-        <div class="mt-12 flex flex-col gap-2 md:border-r md:border-gray-300 order-2 md:order-1 max-h-[calc(100vh-3rem)] md:overflow-y-auto overflow-y-visible scroll-container ">
+    <div class="grid grid-cols-[1fr] md:grid-cols-[3fr_7fr]  max-h-[calc(100vh-3rem)]  px-4 md:overflow-y-hidden">
+        <div class="flex flex-col gap-2 md:border-r md:border-gray-300 order-2 md:order-1 max-h-[calc(100vh-3rem)] md:overflow-y-auto overflow-y-visible scroll-container ">
 
             {{-- <a href="{{ route('book.show', ['slug' => Str::slug($book->title)]) }}">Link</a> --}}
                 @foreach ($books as $book)
@@ -26,7 +26,7 @@
                     </a>
                 @endforeach
                 <div>
-                <svg class="cursor-pointer btn-addRecipe fixed bottom-[4%] right-[2%] sm:bottom-[3%] sm:right-[72%] h-[3rem] w-[3rem] p-2 bg-blue-300 border rounded-xl " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
+                <svg class="cursor-pointer btn-addRecipe fixed bottom-[4%] right-[2%] sm:bottom-[50%] sm:right-[67.85%] h-[3rem] w-[3rem] p-2 bg-blue-300 border rounded-xl " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
 
  
         <div class="flex flex-col items-center justify-center mb-8 mt-16 z-50">
-            <a href={{route('welcome')}} class="block mt-4 rounded-full p-2 bg-blue-300 w-[3.6rem] fixed top-12 md:left-6 left-[85%] cursor-pointer">
+            <a href={{route('welcome')}} class="md:hidden block mt-4 rounded-full p-2 bg-blue-300 w-[3.6rem] fixed top-12 md:left-6 left-[85%] cursor-pointer">
                 <svg class="h-10 w-10 z-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
             </a>
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-gray-900 text-center relative mb-6">
@@ -55,7 +55,7 @@
                 <p class="italic mx-4 -mt-4 md:-mt-0 md:block text-center text-sm md:text-m"> Was gibt es besseres als ein gutes Buch? Hier können Sie ihre lieblings Bücher rekommendieren und beschreiben um was es sich im Buch handelt.</p>
                 <div class="flex flex-row align-center justify-center mt-16 p-4 -ml-8  md:-ml-0">
                     <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 "  src="{{asset('imgs/books/dasCafe.jpg')}}" alt="Bild einer Buchempfehlung">
-                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4   "  src="{{asset('imgs/books/Mans-Search-for-Meaning.jpg')}}" alt="Bild einer Buchempfehlung">
+                    <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4   "  src="{{asset('imgs/books/schneewittchen.jpg')}}" alt="Bild einer Buchempfehlung">
                     <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4   "  src="{{asset('imgs/books/seidenstrassen.jpg')}}" alt="Bild einer Buchempfehlung">
                     <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4   "  src="{{asset('imgs/books/Der-kleine-prinz.jpg')}}" alt="Bild einer Buchempfehlung">
                     <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4   "  src="{{asset('imgs/books/spielDerZeit.jpg')}}" alt="Bild einer Buchempfehlung">
@@ -76,8 +76,9 @@
 
                 <div class="flex items-center justify-between mt-4">
                     <div class="flex md:flex-row flex-col imtes-center ustify-center gap-4 w-[100%]">
-                        <div class="flex md:flex-row flex-col imtes-center ustify-center gap-4 w-[100%]">
+                        <div class="relative flex md:flex-row flex-col imtes-center ustify-center gap-4 w-[100%]">
                             <label class="flex items-center justify-start  md:justify-center text-[20px] md:text-xl" for="title">Titel:</label>
+                            <div class="input-title-error text-red-500 absolute md:top-[95%] top-[45%] md:left-[15%]"></div>
                             <input  class="input-title rounded-xl outline-none focus:ring-0 focus:outline-none focus:border-gray-500 w-[100%] md:w-[50%]" name="title" id="title" type="text">
                             
                             <label class="flex items-center justify-start  md:justify-center text-[20px] md:text-xl" for="title">Author:</label>
@@ -128,6 +129,7 @@
                                 <option value="Wissenschaft">Wissenschaft</option>
                                 <option value="Natur">Natur</option>
                                 <option value="Philosofie">Philosofie</option>
+                                <option value="andere">andere ...</option>
                             </select>
                         </div>
                     </div>
@@ -150,6 +152,9 @@
         const inputTitle = document.querySelector('.input-title')
         const authorResults = document.querySelector('.author-results')
         const authorInput = document.querySelector('.author-input')
+        const inputTitleError = document.querySelector('.input-title-error')
+        
+        const bookTitles = @json($books)  
 
         function openColoseModal() {
             modal.classList.toggle('hidden')
@@ -188,7 +193,7 @@
             console.log(matches)
             let html = matches.map(match => {
                 const highlight = match.replace(regEx, '<b>$1</b>')
-                return `<div class="px-2 py-1 hover:bg-gray-200 cursor-pointer rounded-l" data-id='${match}'>${highlight}</div>`}).join('');
+                return `<div class="px-2 py-1 hover:bg-gray-200 cursor-pointer rounded rounded-l" data-id='${match}'>${highlight}</div>`}).join('');
             authorResults.innerHTML = html;
         }
 
@@ -201,5 +206,18 @@
         })
 
         authorInput.addEventListener('input', () => authorSearch(authorInput.value))
+
+            inputTitle.addEventListener('change', function(e){
+            const input = e.target.value.trim()
+                inputTitleError.innerHTML = ''
+                inputTitle.classList.remove('border-red-500')
+        
+            const exists = Object.values(bookTitles).some(c => c.title === input)
+
+            if(exists){
+                inputTitleError.innerHTML = '<p>Titel schon vergeben</p>'
+                inputTitle.classList.add('border-red-500')
+            }
+        })
     </script>
 </x-app-layout>
