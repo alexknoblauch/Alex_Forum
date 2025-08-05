@@ -24,6 +24,7 @@ Laravel mit Blade scheint mir ein optimaler Einstieg ins Backend durch eine gros
 5. 📓 gelernetes 
 
 - DB search Funktion und Resultate in UI abbilden inkl. Letter Highlighting.
+- Refactoring checkTitle.js in main.js function mit 4 argumenten: danach habe ich unerklärliche datantransfer Probleme zwischen Balde und JS gehabt und habe die Reise nach 4h Fehlersuche beendet, die Funktion hat aber immer am Anfang funktioniert.
 
 
 5. ✔ Vertieft 

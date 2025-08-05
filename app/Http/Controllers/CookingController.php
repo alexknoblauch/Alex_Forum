@@ -14,14 +14,14 @@ class CookingController extends Controller
 {
     
     public function index($slug = null){
-        $cookings = Cooking::all()->reverse();  
+        $cookings = Cooking::latest()->get();
         return view('cooking.index', compact('cookings'));
     }
 
     public function show($slug){
         $id = Cooking::where('title_slug', $slug)->firstOrFail()->id;
         $post = Cooking::where('title_slug', $slug)->firstOrFail();
-        $comments = Comment::where('commentable_id', $id)->get();
+        $comments = Comment::where('commentable_id', $id)->where('commentable_type', 'App\\Models\\Cooking')->latest()->get();
 
         return view('cooking.show', compact('post', 'comments'));
     }

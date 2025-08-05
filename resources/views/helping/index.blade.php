@@ -61,7 +61,8 @@
                 @csrf
                 <div class="flex items-center justify-between mt-4">
                     <div class="flex flex-row imtes-center ustify-center gap-4 w-[100%]">
-                        <label class="travel-title flex items-center justify-center text-[20px] md:text-xl" for="title">Titel:</label>
+                        <label class="flex items-center justify-center text-[20px] md:text-xl" for="title">Titel:</label>
+                        <div class="input-title-error text-red-500 absolute top-[95%] md:left-[15%] left-[25%]"></div>
                         <input  class="rounded-xl outline-none focus:ring-0 focus:outline-none focus:border-gray-500 w-[70%]" name="title" id="title" type="text">
                     </div>
                     <div  class="flex flex-row imtes-center ustify-center gap-4 w-[70%]">
@@ -121,6 +122,7 @@
 
         </div>
     </div>
+    
     <script>
         const modal = document.querySelector('.modal')
         const overlay = document.querySelector('.overlay')
@@ -128,7 +130,6 @@
         const xModal = document.querySelector('.x-modal')
         const gemeindeInput = document.querySelector('.gemeinde-input')
         const gemeindeOutput = document.querySelector('.gemeinde-output')
-        const travelTitle = document.querySelector('.travel-title')
         const gemeinden = @json($gemeinden);
         const titles = @json($titles);
         

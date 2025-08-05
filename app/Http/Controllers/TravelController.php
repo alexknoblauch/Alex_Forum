@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
 class TravelController extends Controller
 {
     public function index(){
-        $travels = Travel::all()->reverse();
+        $travels = Travel::latest()->get();
         $gemeinden = Gemeinde::all();
 
         return view('travel.index', compact('travels', 'gemeinden'));
@@ -22,7 +22,7 @@ class TravelController extends Controller
 
     public function show(Request $request, $slug){
         $travel = Travel::where('title_slug', $slug)->firstOrFail();
-        $comments = Comment::where('commentable_id', $travel->id)->get();
+        $comments = Comment::where('commentable_id', $travel->id)->where('commentable_type', 'App\\Models\\Travel')->latest()->get();
         return view('travel.show', compact('slug', 'travel', 'comments'));
     }
 

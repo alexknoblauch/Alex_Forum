@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 
+
 /* scroll-container scrollbar verstecken */
 .scroll-container {
   scrollbar-width: none; /* Firefox */

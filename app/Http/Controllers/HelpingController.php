@@ -13,15 +13,14 @@ use Illuminate\Support\Str;
 class HelpingController extends Controller
 {
     public function index(){
-        $tasks = Helpinghand::all()->reverse();
+        $tasks = Helpinghand::latest()->get();
         $gemeinden = Gemeinde::all();
-        $titles = Helpinghand::pluck('title')->toArray();
-        return view('helping.index', compact('tasks', 'gemeinden', 'titles'));
-    }
+        return view('helping.index', compact('tasks', 'gemeinden'));
+    } 
 
     public function show($slug){
         $post = Helpinghand::where('title_slug', $slug)->firstOrFail();
-        $comments = Comment::where('commentable_id', $post->id)->get();
+        $comments = Comment::where('commentable_id', $post->id)->latest()->get();
         return view('helping.show', compact('post', 'comments'));
     }
 

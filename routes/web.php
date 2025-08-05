@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/kochtipps/post', [CookingController::class, 'store'])->name('cooking.store');
     Route::post('/ausflug/post', [TravelController::class, 'store'])->name('travel.store');
     Route::post('/helfende-hand/post', [HelpingController::class, 'store'])->name('helping.store');
+    Route::post('/buchtipps/post', [BookController::class, 'store'])->name('book.store');
+    Route::post('/comment-post', [CommentController::class, 'store'])->name('comment.store');
 });
 
 

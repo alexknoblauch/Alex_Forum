@@ -21,6 +21,7 @@ class BookFactory extends Factory
         return [
             'title' => $title,
             'title_slug' => Str::slug($title),
+            'seiten' => $this->faker->randomElement([100, 200, 150, 250, 300]),
             'cathegory' => $this->faker->randomElement(['Krimi', 'Roman', 'Biografie', 'Ratgeber', 'Geschichte', 'Wissenschaft', 'Natur', 'Philosofie']),
             'author_id' => $authorId,
             'description' => $this->faker->paragraph(3),

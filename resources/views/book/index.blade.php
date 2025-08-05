@@ -70,25 +70,24 @@
     <div class="">
         <div class=" modal hidden m-8 p-8 md:m-24 h-[90%] w-[90%] md:h-[70%] md:w-[70%] rounded-xl  bg-white fixed inset-0 top-[50%] left-[40%] md:top-[30%] md:left-[45%] transform -translate-x-1/2 -translate-y-1/2  z-50">
             <span class="x-modal cursor-pointer p-1 border-none rounded-xl bg-gray-200 absolute right-2 top-2"><svg class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></span>
-            <form class="grid grid-rows-[2fr_8fr]" action="{{route('cooking.store')}}" method="POST">
+            <form class="grid grid-rows-[2fr_8fr]" action="{{route('book.store')}}" method="POST">
                 @csrf
 
                 <div class="flex items-center justify-between mt-4">
-                    <div class="flex md:flex-row flex-col imtes-center ustify-center gap-4 w-[100%]">
+                    <div class="flex md:flex-row flex-col imtes-center justify-center gap-4 w-[100%]">
                         <div class="relative flex md:flex-row flex-col imtes-center ustify-center gap-4 w-[100%]">
                             <label class="flex items-center justify-start  md:justify-center text-[20px] md:text-xl" for="title">Titel:</label>
-                            <div class="input-title-error text-red-500 absolute md:top-[95%] top-[45%] md:left-[15%]"></div>
+                            <div class="input-title-error text-red-500 absolute md:top-[95%] top-[45%] md:left-[10%]"></div>
                             <input  class="input-title rounded-xl outline-none focus:ring-0 focus:outline-none focus:border-gray-500 w-[100%] md:w-[50%]" name="title" id="title" type="text">
                             
-                            <label class="flex items-center justify-start  md:justify-center text-[20px] md:text-xl" for="title">Author:</label>
+                            <label class="flex items-center justify-start  md:justify-center text-[20px] md:text-xl" for="author">Author:</label>
                             <div class="relative">
                                 <input autocomplete="off"  class="relative author-input rounded-xl outline-none focus:ring-0 focus:outline-none focus:border-gray-500 w-[100%] md:w-[100%]" name="author" id="author" type="text">
                                 <div class="absolute top-[3rem] left-[0%] rounded-l author-results bg-[#F2F2F2]"></div>
                             </div>
                         </div>
-                        <label class=" flex items-center justify-start md:justify-center md:text-xl" for="duration">Seiten:</label>
-                        <select class="rounded-xl outline-none focus:ring-0 focus:outline-none focus:border-gray-500 md:w-[20%] w-[35%] w-full h-full" name="duration"  id="duration">
-                            <option value="" disabled selected></option>
+                        <label class=" flex items-center justify-start md:justify-center md:text-xl" for="seiten">Seiten:</label>
+                        <select class="rounded-xl outline-none focus:ring-0 focus:outline-none focus:border-gray-500 md:w-[20%] w-[35%] w-full h-full" name="seiten"  id="seiten">
                             <option value="100">100</option>
                             <option value="150">150</option>
                             <option value="200">200</option>
@@ -117,8 +116,8 @@
                         <label class=" felx justify-center md:text-xl" for="description">Beschreibung:</label><br>
                         </div>
                         <div class="flex items-center justify-center">
-                            <label class="flex items-center justify-start md:justify-center md:text-xl mr-2" for="duration">Kathegorie:</label>
-                            <select  class="rounded-xl outline-none focus:ring-0 focus:outline-none focus:border-gray-500 md:w-[60%] w-[35%] w-full h-full" name="duration"  id="duration">
+                            <label class="flex items-center justify-start md:justify-center md:text-xl mr-2" for="cathegory">Kathegorie:</label>
+                            <select  class="rounded-xl outline-none focus:ring-0 focus:outline-none focus:border-gray-500 md:w-[60%] w-[35%] w-full h-full" name="cathegory"  id="cathegory">
                                 <option value="" disabled selected></option>
                                 <option value="Roman">Roman</option>
                                 <option value="Krimi">Krimi</option>
