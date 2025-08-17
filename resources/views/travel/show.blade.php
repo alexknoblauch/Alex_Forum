@@ -7,7 +7,7 @@
 
       <!-- Main Content: FIRST on small screens -->
       <div class="order-1 md:order-2 md:col-start-2 p-4 mt-16">
-        <div class="flex flex-row mb-4">
+        <div class="flex flex-arow mb-4">
           <div class="md:flex flex-col items-start justify-start">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-gray-900 text-center relative mb-6 mt-8">
                 <span class="inline-block relative">
@@ -17,9 +17,11 @@
                 </h2>
 
                 <div class="flex items-center gap-4 justify-center mt-8 mb-8">
-                <svg class="h-8 w-8 -mr-2 -mt-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>                </svg>
-                <p class="text-lg">{{$travel->gemeinde}} / {{$travel->canton}}</p>
+                  {{--LIKTE BUTTON--}}
+                  <x-like-button :likeable="$travel"/>
+                  <svg class="h-6 w-6 -mr-2 -mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>                </svg>
+                  <p class="text-lg">{{$travel->gemeinde->gemeinde}} / {{$travel->canton}}</p>
                 </div>
           </div>
 
@@ -68,7 +70,13 @@
             </button>
           </form>
         </div>
-
+          <a href="{{route('travel.index')}}" class="absolute z-50 top-2 left-4">
+            <div class="bg-white rounded-full h-8 w-8 flex items-center justify-center">
+                <svg class="h-7 w-7 -translate-x-0.5 -translate-y-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352H544C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288H173.3L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z"/>
+                </svg>
+            </div>
+          </a>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', async function(){

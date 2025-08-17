@@ -17,4 +17,10 @@ class Comment extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    ## Alle Kommentare des Beitrags anzeigen
+    public static function fetchMorphedComments($id, $type){
+        return self::with('user')->where('commentable_id', $id)->where('commentable_type', $type)->latest()->get();
+    }
+
 }

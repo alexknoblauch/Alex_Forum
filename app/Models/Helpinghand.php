@@ -28,5 +28,9 @@ class Helpinghand extends Model
     public function gemeinde(){
         return $this->belongsTo(Gemeinde::class, 'gemeinde_id');
     }
+
+    public function likes(){
+      return $this->morphMany(Like::class, 'likeable');
+    }
     
 }

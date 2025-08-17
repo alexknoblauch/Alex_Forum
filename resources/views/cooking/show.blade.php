@@ -16,12 +16,18 @@
                 </span>
                 </h2>
 
-                <div class="flex items-center gap-4 justify-center mt-8 mb-8">
-                <svg class="h-4 w-4 -mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
-                    <path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/>
-                </svg>
-                <p>Dauer: 20min</p>
+                <div class="flex items-center gap-4 justify-center mt-8 mb-8 gap-12 ml-1">
+                  {{--LIKTE BUTTON--}}
+                  <x-like-button :likeable="$post"/>
+ 
+                  <div class="flex gap-4 items-center">
+                    <svg class="h-4 w-4 -mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                      <path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/>
+                    </svg>
+                    <p>Dauer: 20min</p>
+                  </div>
                 </div>
+
           </div>
 
           <div class="flex justify-center">
@@ -45,10 +51,11 @@
               <svg class="absolute top-[45%] bg-white left-[91%] h-6 w-6 z-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg>
           </button>
         </form>
+
+        <div class="comment-container">
             @if($comments->isEmpty())
               <p class="italic text-center text-[0.9rem] mt-4 mb-8">Noch keine Kommentare vorhanden... <br> Sei der Erste!</p>
-            @endif
-        <div class="comment-container">
+            @else
             @foreach($comments as $comment)
               <div class="hover:bg-gray-200 p-2 rounded-[9px] bg-[#EAECEF] flex flex-col gap-2 mb-4">
                 <div class="flex items-center justify-between">
@@ -61,6 +68,7 @@
                 <p class="text-gray-700 text-[0.7rem] md:text-[0.7rem] w-[80%]">{{$comment->comment}}</p>
               </div>
             @endforeach
+            @endif
         </div>
           <form action="javascript:void(0)" class="comment-form" method="POST">
             @csrf
@@ -70,7 +78,13 @@
             </button>
           </form>
           </div>
-
+              <a href="{{route('cooking.index')}}" class="absolute z-50 top-2 left-4">
+                <div class="bg-white rounded-full h-8 w-8 flex items-center justify-center">
+                    <svg class="h-7 w-7 -translate-x-0.5 -translate-y-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352H544C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288H173.3L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z"/>
+                    </svg>
+                </div>
+              </a>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', async function(){
@@ -108,6 +122,7 @@
             }
           })
           
+          console.log(res)
           if(res.ok) {
             const data = await res.json()
             console.log(data.new_comments)
@@ -135,7 +150,6 @@
               })
             })
       })
-      
     </script>
   </body>
 </x-app-layout>

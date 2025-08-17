@@ -27,5 +27,9 @@ class Travel extends Model
         return $this->belongsTo(Gemeinde::class);
     }
 
+    public function likes(){
+      return $this->morphMany(Like::class, 'likeable');
+    }
+
  
 }

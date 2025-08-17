@@ -21,7 +21,9 @@ class TravelController extends Controller
     }
 
     public function show(Request $request, $slug){
-        $travel = Travel::where('title_slug', $slug)->firstOrFail();
+        $travel = Travel::with('likes')->where('title_slug', $slug)->firstOrFail();
+        $type = get_class($travel);
+        $travel['type'] = $type; 
         $comments = Comment::where('commentable_id', $travel->id)->where('commentable_type', 'App\\Models\\Travel')->latest()->get();
         return view('travel.show', compact('slug', 'travel', 'comments'));
     }

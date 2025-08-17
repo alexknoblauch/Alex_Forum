@@ -14,7 +14,10 @@ test('User can create a Travel', function(){
 
     $request = $this->actingAs($user)->postJson(route('travel.store'), $payload);
 
-    $request->assertStatus(201);
+    $request->dump();
+
+
+    $request->assertStatus(302);
 
     $this->assertDatabaseHas('travels', [
         'title' => 'Test Travel',

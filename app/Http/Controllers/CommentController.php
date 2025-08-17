@@ -17,8 +17,7 @@ class CommentController extends Controller
         ]);
         
         Auth::user()->comments()->create($data);
-
-        $newComments = Comment::with('user')->where('commentable_id', $data['commentable_id'])->where('commentable_type', $data['commentable_type'])->latest()->get();
+        $newComments = Comment::fetchMorphedComments($data['commentable_id'], $data['commentable_type']);
 
         if ($request->expectsJson()){
             return response()->json([

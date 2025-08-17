@@ -13,7 +13,7 @@
             {{-- href="{{route('travel.show', ['slug' => Str::slug($cooking->title) ])}}" --}}
             <div>
                 @foreach ($travels as $travel)
-                <a href="{{route('travel.show', ['slug' => Str::slug($travel->title) ])}}" class="cursor-pointer hover:bg-gray-200 p-4 py-4 grid grid-cols-[8fr_2fr] rounded-l-lg mt-4">
+                <a href="{{route('travel.show', ['ausflug' => Str::slug($travel->title) ])}}" class="cursor-pointer hover:bg-gray-200 p-4 py-4 grid grid-cols-[8fr_2fr] rounded-l-lg mt-4">
                         <div>
                             <div class="flex flex- font-semibold text-lg md:text-base">
                                 <svg class="h-4 w-4 mr-2 opacity-60 am:mt-4 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M560 160A80 80 0 1 0 560 0a80 80 0 1 0 0 160zM55.9 512l325.2 0 75 0 122.8 0c33.8 0 61.1-27.4 61.1-61.1c0-11.2-3.1-22.2-8.9-31.8l-132-216.3C495 196.1 487.8 192 480 192s-15 4.1-19.1 10.7l-48.2 79L286.8 81c-6.6-10.6-18.3-17-30.8-17s-24.1 6.4-30.8 17L8.6 426.4C3 435.3 0 445.6 0 456.1C0 487 25 512 55.9 512z"/></svg>
@@ -30,15 +30,10 @@
                             </div>          
                 </a>
                 @endforeach
-            <div>
-                <svg class="cursor-pointer btn-travel fixed bottom-[4%] right-[2%] sm:bottom-[50%] sm:right-[67.85%] h-[3rem] w-[3rem] p-2 bg-blue-300 border rounded-xl z-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
-            </div>
+
             </div>
         </div>
         <div class="md:p-12 p-6 -mt-12 text-center leading-[3rem] order-1 md:order-2 mb-8 max-h-[calc(100vh-3rem)] ">
-            <a href={{route('welcome')}} class="md:hidden block mt-4 rounded-full p-2 bg-blue-300 w-[3.6rem] fixed top-12 md:left-6 left-[85%] cursor-pointer z-20">
-                <svg class="h-10 w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
-            </a>
             <div class="flex flex-col items-center justify-center mb-8 mt-16">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-gray-900 text-center relative mb-6">
                     <span class="inline-block relative">
@@ -51,9 +46,12 @@
                     </p>
                 </h2>
             </div>
-            <p class="italic mx-4 -mt-4 md:-mt-0 md:block text-center text-sm md:text-m">Wo gehen Sie am liebsten hin?. <br> <span class="md:block hidden">Ob draussen oder drinnen, bringen Sie schwung ins Leben anderer Menschen mit tollen Ideen.</span></p>
-            <div class="flex justify-center flex-row mt-16 p-4">
-                
+            <p class="italic mx-4 -mt-4 md:-mt-0 md:block text-center text-sm md:text-m">Wo gehen Sie am liebsten hin?<br><span class="md:block hidden">Ob draussen oder drinnen, bringen Sie schwung ins Leben anderer Menschen mit tollen Ideen.</span></p>
+            <div class="flex items-center gap-2 justify-center mt-8">
+                <svg class="cursor-pointer btn-travel h-[2.8rem] w-[2.8rem] p-2 bg-blue-300 border rounded-xl " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
+                <p class="italic">Neuer Ausflug</p>
+            </div>   
+            <div class="flex justify-center flex-row mt-8 p-4">
                 <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 " src="{{asset('imgs/travel/alpwirtschaft-horben-sommer-12.jpg')}}" alt="">
                 <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/travel/verkehrshaus-luzern-1.jpg')}}" alt="">
                 <img class="md:h-36 md:w-36 h-24 w-24 object-cover rounded-full -mr-12 border-white border-4 z-10 "  src="{{asset('imgs/travel/photo-1530638458177-fcc275860f8b.avif')}}" alt="">
@@ -113,12 +111,12 @@
                     </div>
                 </div>
                 <div class="mt-4 h-[100%]">
-                    <div class="flex justify-between flex-row items-center justify-left mb-2">
-                        <div class="flex items-center justify-between">
-                            <svg class="md:h-5 md:w-5 mr-2 w-15 -mt-4 sm:-mt-0"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M560 160A80 80 0 1 0 560 0a80 80 0 1 0 0 160zM55.9 512l325.2 0 75 0 122.8 0c33.8 0 61.1-27.4 61.1-61.1c0-11.2-3.1-22.2-8.9-31.8l-132-216.3C495 196.1 487.8 192 480 192s-15 4.1-19.1 10.7l-48.2 79L286.8 81c-6.6-10.6-18.3-17-30.8-17s-24.1 6.4-30.8 17L8.6 426.4C3 435.3 0 445.6 0 456.1C0 487 25 512 55.9 512z"/></svg>
+                    <div class="flex justify-start items-start md:justify-between flex-col md:flex-row flex-row mb-2">
+                        <div class="flex items-center justify-between order-2 md:order-1">
+                            <svg class="h-5 w-5 mr-2 w-15 -mt-4 sm:-mt-0"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M560 160A80 80 0 1 0 560 0a80 80 0 1 0 0 160zM55.9 512l325.2 0 75 0 122.8 0c33.8 0 61.1-27.4 61.1-61.1c0-11.2-3.1-22.2-8.9-31.8l-132-216.3C495 196.1 487.8 192 480 192s-15 4.1-19.1 10.7l-48.2 79L286.8 81c-6.6-10.6-18.3-17-30.8-17s-24.1 6.4-30.8 17L8.6 426.4C3 435.3 0 445.6 0 456.1C0 487 25 512 55.9 512z"/></svg>
                             <label class="md:text-xl" for="description">Beschreibung:</label><br>
                         </div>
-                        <div class="flex gap-2">
+                        <div class="flex gap-2 items-center justify-center order-1 md:order-2">
                             <label class="md:text-xl" for="gemeinde">Gemeinde:</label><br>
                             <div class="relative">
                                 <input autocomplete="off" class="gemeinde-input rounded-xl outline-none focus:ring-0 focus:outline-none focus:border-gray-500 w-[12.5rem] w-full h-full" name="gemeinde" id="gemeinde" type="text">
@@ -135,6 +133,13 @@
             </form>
 
         </div>
+            <a href="{{route('welcome')}}" class="absolute z-50 top-2 left-4">
+                <div class="bg-white rounded-full h-8 w-8 flex items-center justify-center">
+                    <svg class="h-7 w-7 -translate-x-0.5 -translate-y-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352H544C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288H173.3L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z"/>
+                    </svg>
+                </div>
+            </a>
     </div>
     <script>
         const overlay = document.querySelector('.overlay')

@@ -19,17 +19,16 @@ class CookingController extends Controller
     }
 
     public function show($slug){
-        $id = Cooking::where('title_slug', $slug)->firstOrFail()->id;
-        $post = Cooking::where('title_slug', $slug)->firstOrFail();
-        $comments = Comment::where('commentable_id', $id)->where('commentable_type', 'App\\Models\\Cooking')->latest()->get();
+        $post = Cooking::with('likes')->where('title_slug', $slug)->firstOrFail();
+        $comments = Comment::where('commentable_id', $post->id)->where('commentable_type', 'App\\Models\\Cooking')->latest()->get();
+        $type = get_class($post);
+        $post['type'] = $type;
 
-        return view('cooking.show', compact('post', 'comments'));
+        return view('cooking.show', compact('post', 'comments', 'type'));
     }
 
     public function store(Request $request){
-
         ##HTTP request
-        $title = $request->title;
         $data = $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'duration' => ['required', 'in:5,10,15,20,25,30,35,40,45,50,55,60,65,70,75'],
@@ -40,7 +39,7 @@ class CookingController extends Controller
             return redirect()->route('cooking.index')->with('error', 'Dieser Titel existiert bereits.');
         } 
 
-        $data['title_slug'] = Str::slug($title);
+        $data['title_slug'] = Str::slug($data['title']);
         Auth::user()->cookings()->create($data);
         $cookings = Cooking::all()->reverse(); 
 

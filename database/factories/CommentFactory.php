@@ -24,6 +24,7 @@ class CommentFactory extends Factory
             'App\Models\Book',
             'App\Models\Cooking',
             'App\Models\Travel',
+            'App\Models\Trick',
         ];
         
         return [

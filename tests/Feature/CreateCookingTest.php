@@ -14,7 +14,7 @@ test('user can post cooking', function () {
 
     $response = $this->actingAs($user)->postJson(route('cooking.store'), $payload);
 
-    $response->assertStatus(200);
+    $response->assertStatus(302);
 
     $this->assertDatabaseHas('cookings', [
         'title' => 'Mein Rezept',

@@ -21,10 +21,13 @@ class BookController extends Controller
     }
 
     public function show($slug){
-        $book = Book::where('title_slug', $slug)->firstOrFail();
+        $book = Book::with('likes')->where('title_slug', $slug)->firstOrFail();
+        $type = get_class($book);
+        $book['type'] = $type;
+
         $comments = Comment::where('commentable_id', $book->id)->where('commentable_type', 'App\\Models\\Book')->latest()->get();
         
-        return view('book.show', compact('book', 'comments'));
+        return view('book.show', compact('book', 'comments', 'type'));
     }
 
     public function store(Request $request){
@@ -37,8 +40,8 @@ class BookController extends Controller
             'description' => ['max:2000', 'string', 'required'],
             'author' => ['string', 'max:100', 'required']
         ]);
-
         $data['title_slug'] = Str::slug($data['title']);
+        
         $author = Author::firstOrCreate(['author' => trim($data['author'])]);
         $data['author_id'] = $author->id;
 
