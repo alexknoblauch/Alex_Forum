@@ -3,7 +3,7 @@
 
     @include('layouts.header')
 
-    <div class="grid grid-cols-1 md:grid-cols-[3fr_7fr] w-full max-w-7xl px-4 md:overflow-y-auto overflow-y-visible">
+    <div class="main-container grid grid-cols-1 md:grid-cols-[3fr_7fr] w-full max-w-7xl px-4 md:overflow-y-auto overflow-y-visible">
 
       <!-- Main Content: FIRST on small screens -->
       <div class="order-1 md:order-2 md:col-start-2 p-4 mt-16">
@@ -11,7 +11,7 @@
           <div class="flex flex-col items-center justify-center md:items-start md:justify-start">
                 <h2 class="w-[90%] text-2xl sm:text-4xl md:text-5xl font-serif text-gray-900 text-center relative mb-6 mt-8">
                 <span class="inline-block relative">
-                    <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-11/12 h-2 bg-green-500 rounded-lg z-0"></span>
+                    <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-11/12 h-2 bg-violet-500 rounded-lg z-0"></span>
                     <span class="relative z-10">{{ $book->title }}</span>
                 </span>
                 </h2>
@@ -41,22 +41,24 @@
 
         <div class="text-center md:text-start mt-4 w-full max-w-4xl mx-auto text-gray-800 dark:text-gray-300">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae fuga voluptatem a ipsum amet velit quasi harum debitis! Dolorum debitis cum tenetur dolor similique nesciunt ex vero neque facere Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos magni laudantium alias maiores officiis tempore commodi, architecto facilis rem porro mollitia quia, labore minima libero exercitationem sunt dolores. Libero, accusamus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum quo quidem tempora magnam. Esse voluptatem voluptate unde dolorem incidunt soluta tempora, delectus ad neque similique cumque facilis a aut provident.
+            {{$book->description}}          
           </p>
-        </div>
+        </div> 
       </div>
 
       <!-- Comments: SECOND on small screens -->
       <div class=" max-h-[80vh] md:overflow-y-auto scroll-container p-4 order-2 md:order-1 md:col-start-1 ">
         <form action="javascript:void(0)" class="comment-form relative md:hidden" method="POST">
           @csrf
-          <textarea class=" textarea-input bg-green-100 hover:bg-white mb-12 block md:hidden bottom-1 left-2 md:text-[0.8rem] w-[100%] h-[6rem] rounded-xl bg-gray-100 outline-none focus:ring-0 focus:border-black" placeholder="Dein Kommentar ..." name="comment"></textarea>
+          <textarea class=" textarea-input bg-violet-100 hover:bg-white mb-12 block md:hidden bottom-1 left-2 md:text-[0.8rem] w-[100%] h-[6rem] rounded-xl bg-gray-100 outline-none focus:ring-0 focus:border-black" placeholder="Dein Kommentar ..." name="comment"></textarea>
           <button class="btn-form-submit block md:hidden rounded-full bg-white flex items-center justify-center rounded-full " type="submit">
               <svg class="absolute top-[45%] bg-white left-[91%] h-6 w-6 z-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg>
           </button>
         </form>
         @if($comments->isEmpty())
+        <div class="default-comment">
           <p class="italic text-center text-[0.9rem] mt-4 mb-8">Noch keine Kommentare vorhanden... <br> Sei der Erste!</p>
+        </div>
         @endif
         <div class="comment-container">
           @foreach($comments as $comment)
@@ -77,20 +79,12 @@
         </div>
         <form action="javascript:void(0)" class="comment-form" method="POST">
           @csrf
-          <textarea class="textarea-input fixed bg-green-100 hover:bg-white hidden md:block bottom-4 left-8 md:text-[0.8rem] w-[27%] rounded-xl bg-gray-100 outline-none focus:ring-0 focus:border-black" placeholder="Dein Kommentar ..." name="comment"></textarea>
+          <textarea class="textarea-input fixed bg-violet-100 hover:bg-white hidden md:block bottom-4 left-8 md:text-[0.8rem] w-[27%] rounded-xl bg-gray-100 outline-none focus:ring-0 focus:border-black" placeholder="Dein Kommentar ..." name="comment"></textarea>
           <button class="btn-form-submit hidden md:block flex items-center justify-center rounded-full " type="submit">
               <svg class="absolute bottom-[4%] bg-white left-[26.5%] h-6 w-6 z-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"/></svg>
           </button>
         </form>
       </div>
-
-                          <a href="{{route('book.index')}}" class="absolute z-50 top-2 left-4">
-                    <div class="bg-white rounded-full h-8 w-8 flex items-center justify-center">
-                        <svg class="h-7 w-7 -translate-x-0.5 -translate-y-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352H544C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288H173.3L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z"/>
-                        </svg>
-                    </div>
-                    </a>
 
     </div>
     <script>
@@ -98,9 +92,14 @@
         const form = document.querySelector('.comment-form')
         const commentable_id = @json($book->id);
         const csrfToken = @json(csrf_token());
+        const comments = @json($comments);
+        const defaultComment = document.querySelector('.default-comment')
         const commentContainer = document.querySelector('.comment-container')
         const btnFormSubmit = document.querySelectorAll('.btn-form-submit')
         
+
+
+      // WRITE COMMENTS FUNCTION
         btnFormSubmit.forEach(btn => {
           btn.addEventListener('click', async function(e){
           e.preventDefault()
@@ -149,12 +148,34 @@
                     `
                   }).join('')
                   
-                  
+                  if(comments.length === 0) defaultComment.innerHTML = ''
                   commentContainer.innerHTML = markup
                   textarea.value = ''
                 }
               })
             })
+
+        //CREATE ZURÜCK BUTTON FÜR MOBILE
+          function renderBackButton(){
+            const backButton = document.querySelector('.back-button')
+            const isMobileWith = window.innerWidth < 768
+            const mainContainer = document.querySelector('.main-container')
+
+            if(!backButton && isMobileWith){
+              const markup = `
+                <a href="{{route('book.index')}}" class="back-button absolute z-50 top-2 left-4">
+                  <div class="bg-white rounded-full h-8 w-8 flex items-center justify-center">
+                      <svg class="h-7 w-7 -translate-x-0.5 -translate-y-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                      <path d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352H544C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288H173.3L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z"/>
+                      </svg>
+                  </div>
+                </a>
+              `
+              mainContainer.insertAdjacentHTML('beforeend', markup)
+            } 
+          }
+          window.addEventListener('resize', renderBackButton)
+          window.addEventListener('load', renderBackButton)
         })
     </script>
   </body>

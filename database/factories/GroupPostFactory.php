@@ -7,9 +7,9 @@ use Illuminate\Support\Str;
 
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Trick>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\odel=GroupPost>
  */
-class TrickFactory extends Factory
+class GroupPostFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,15 +18,14 @@ class TrickFactory extends Factory
      */
     public function definition(): array
     {
-        $title = implode(' ', $this->faker->words(3));
+        $title = $this->faker->words(4, true);
 
         return [
+            'group_id' => $this->faker->numberBetween(1,10),
+            'user_id' => $this->faker->numberBetween(1,10),
             'title' => $title,
             'title_slug' => Str::slug($title),
-            'description' => $this->faker->paragraph(10),
-            'user_id' => $this->faker->numberBetween(1, 10),
-            'anonym' => false
+            'description' => $this->faker->sentence(10)
         ];
     }
 }
-

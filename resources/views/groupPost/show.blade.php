@@ -6,9 +6,9 @@
     <div class="main-container grid grid-cols-1 md:grid-cols-[3fr_7fr] w-full max-w-7xl px-4 md:overflow-y-auto overflow-y-visible">
 
       <!-- Main Content: FIRST on small screens -->
-      <div class="order-1 md:order-2 md:col-start-2 p-4 md:mt-16 mt-8">
-        <div class="flex flex-col md:flex-row mb-4">
-          <div class="md:flex flex-col md:items-start items-center justify-start order-2 md:order-1">
+      <div class="order-1 md:order-2 md:col-start-2 p-4 mt-16">
+        <div class="flex flex-arow mb-4">
+          <div class="md:flex flex-col items-star t justify-start">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-gray-900 text-center relative mb-6 mt-8">
                 <span class="inline-block relative">
                     <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-11/12 h-2 bg-yellow-300 rounded-lg z-0"></span>
@@ -16,16 +16,17 @@
                 </span>
                 </h2>
 
-                <div class="flex md:flex-row items-center md:gap-4 gap-2 justify-center mt-8 mb-8 whitespace-nowrap">
+                <div class="flex items-center gap-4 justify-center mt-8 mb-8">
                   {{--LIKTE BUTTON--}}
                   <x-like-button :likeable="$travel"/>
-                    <svg class="h-6 w-6 -mr-2 shrink-0 -mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>
-                    <p class="text-lg whitespace-nowrap">{{$travel->gemeinde->gemeinde}} / {{$travel->canton}}</p>
+                  <svg class="h-6 w-6 -mr-2 -mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"/></svg>
+                  <p class="text-lg whitespace-nowrap">{{$travel->gemeinde->gemeinde}} / {{$travel->canton}}</p>
                 </div>
           </div>
 
-          <div class="flex justify-center order-1">
-            <img class="md:ml-12 ml-0 h-40 w-40  rounded-xl shadow" src="{{ asset('storage/' . $travel->image) }}" alt="Foto des Gerichts">
+          <div class="flex justify-center md:order-2 order-1">
+            <img class="ml-12 h-40 w-40  rounded-xl shadow" src="{{ asset('imgs/travel/img_4kq_iiefaabi.webp') }}" alt="Foto des Gerichts">
           </div>
         </div>
 
@@ -117,17 +118,17 @@
             const markup = data.new_comments.map((comment, i) => {
               const iteration = data.new_comments.length - i
               return `
-                <div class="hover:bg-gray-200 p-2 rounded-[9px] bg-[#EAECEF] flex flex-col gap-2 mb-4">
-                  <div class="flex items-center justify-between">
-                    <div class="flex items-center  gap-2"> 
-                      <img class="h-7 w-7 rounded-full border border-black" src="{{ asset('imgs/User/avatarBgremove.png') }}" alt="User Avatar">
-                      <h3 class="text-[0.7rem] md:text-[0.9rem]">${comment.user.name}</h3>
+              <div class="hover:bg-gray-200 p-2 rounded-[9px] bg-[#EAECEF] flex flex-col gap-2 mb-4">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center  gap-2"> 
+                    <img class="h-7 w-7 rounded-full border border-black" src="{{ asset('imgs/User/avatarBgremove.png') }}" alt="User Avatar">
+                    <h3 class="text-[0.7rem] md:text-[0.9rem]">${comment.user.name}</h3>
                     </div>
-                      <p class="flex-between mr-4 text-[0.7rem] md:text-[0.9rem]">#${iteration}</p>
-                  </div>
+                    <p class="flex-between mr-4 text-[0.7rem] md:text-[0.9rem]">#${iteration}</p>
+                    </div>
                     <p class="text-gray-700 text-[0.7rem] md:text-[0.7rem] w-[80%]">${comment.comment}</p>
-                </div>
-              `
+                    </div>
+                    `
                   }).join('')
                   
                   if(comments.length === 0) defaultComment.innerHTML = ''

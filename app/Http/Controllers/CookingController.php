@@ -33,15 +33,24 @@ class CookingController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'duration' => ['required', 'in:5,10,15,20,25,30,35,40,45,50,55,60,65,70,75'],
             'description' => ['required','string', 'max:1000'],
+            'image' => ['nullable', 'image']
         ]);
 
         if(Cooking::where('title', $data['title'])->exists()){
             return redirect()->route('cooking.index')->with('error', 'Dieser Titel existiert bereits.');
-        } 
+        }
 
+        if($request->hasFile('image')){
+            $imgPath = $request->file('image')->store('uploads', 'public');
+        } else {
+            $imgPath = 'uploads/default_img.png';
+        }
+
+        $data['image'] = $imgPath;
         $data['title_slug'] = Str::slug($data['title']);
         Auth::user()->cookings()->create($data);
         $cookings = Cooking::all()->reverse(); 
+
 
         ##HTTP response
         return redirect()->route('cooking.index');

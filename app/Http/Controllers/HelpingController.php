@@ -29,16 +29,19 @@ class HelpingController extends Controller
             $data = $request->validate([
                 'title' => ['max:60', 'string', 'required'],
                 'canton' => ['required', 'string'],
-                'location' => ['max:40','required', 'string'],
-                'type' => ['max:40','required', 'string']
+                'gemeinde' => ['max:40','required', 'string'],
+                'description' => ['max:2000', 'required', 'string']
             ]);
 
             $data['title_slug'] = Str::slug($data['title']);
+            $gemeinde = $data['gemeinde'] = ucfirst($data['gemeinde']);
+            $data['gemeinde_id'] = Gemeinde::firstOrCreate(['gemeinde' => $gemeinde])->id;
+            unset($data['gemeinde']);
             $data['user_id'] = auth()->id();
 
             Helpinghand::create($data);
 
             ##HTTP Response
-            return redirect()->route('helping.index');
+            return redirect(route('helping.index'));
     }
 }

@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tricks', function (Blueprint $table) {
+        Schema::create('group_posts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('group_id');
+            $table->foreignId('user_id');
             $table->string('title');
             $table->string('title_slug');
-            $table->text('description');
-            $table->foreignId('user_id')->constrained('users');
-            $table->boolean('anonym')->default(false)->nullable();
-
-            $table->index('user_id');
+            $table->text('description'); 
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tricks');
+        Schema::dropIfExists('group_posts');
     }
 };

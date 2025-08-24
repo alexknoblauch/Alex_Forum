@@ -29,21 +29,33 @@ class TravelController extends Controller
     }
 
     public function store(Request $request){
+
         ##HTTP-Request
         $validated = $request->validate([
             'title' => ['max:60', 'string', 'required'],
             'canton' => ['string', 'required'],
             'gemeinde' => ['max:40', 'string', 'required'],
-            'description' => ['max:3000', 'required']
+            'description' => ['max:3000', 'required'],
+            'image' => ['image', 'nullable']
         ]);
 
+        if($request->hasFile('image')){
+            $imgPath = $request->file('image')->store('uploads', 'public');
+        } else {
+            $imgPath = 'uploads/default_img.png';
+        }
+
+        
+        $validated['image'] = $imgPath;
         $validated['gemeinde'] = ucfirst($validated['gemeinde']);
+        $validated['gemeinde_id'] = Gemeinde::firstOrCreate(['gemeinde' => $validated['gemeinde']])->id;
+        unset($validated['gemeinde']);
         $validated['title_slug'] = Str::slug($request->title);
         $validated['user_id'] = auth()->id();
 
         Travel::create($validated);
 
         ##HTTP-Response einleiten
-        return redirect()->route('travel.index');
+        return redirect(route('travel.index'));
     }
 }

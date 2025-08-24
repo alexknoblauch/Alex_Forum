@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentSeeder::class);
         $this->call(GemeindeSeeder::class);
         $this->call(TrickSeeder::class);
+        $this->call(GroupSeeder::class);
+        $this->call(GroupPostSeeder::class);
 
     }
 }

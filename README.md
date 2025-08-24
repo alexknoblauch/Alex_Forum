@@ -4,17 +4,17 @@
 
 Form ist ein Projekt wo jedermann Sich registrieren kann und Content erstellen kann.
 Ich repetierte neu erworbenes Backend Wissen: Synthax, OOP, Relations, Testing, Git und Dokumentierung.
-Laravel mit Blade scheint mir ein optimaler Einstieg ins Backend durch eine grosse Community. Ebenfalls analysierte und verglich ich diese Backend Prozesse mit denen von node.js, ich arbeitete dafür mit ChatGPT.
+Neu Erlerntes Wissen: Anbindung MongoDB, Chat long Polling, JS erzeugte UI Elemente, Morph Tables, Auth/Guest Filtering.
+Laravel scheint mir ein optimaler Einstieg ins Backend. Ebenfalls analysierte und verglich ich diese Backend Prozesse mit denen von node.js, ich arbeitete dafür mit ChatGPT.
 
 
 2. 🚀 Features
 
 -User Login (Laravel Default)
+-Chat funktion
 -Welcome Page
--Kochrezept Page (App style)
--Ausflug Page (App style)
--Helfende Hand Page (App style)
--Buchtipps Page (App style)
+-Create Content
+-Comment Content
 
 
 3. 🛠️ Installation / Setup
@@ -23,8 +23,11 @@ Laravel mit Blade scheint mir ein optimaler Einstieg ins Backend durch eine gros
 
 5. 📓 gelernetes 
 
-- DB search Funktion und Resultate in UI abbilden inkl. Letter Highlighting.
-- Refactoring checkTitle.js in main.js function mit 4 argumenten: danach habe ich unerklärliche datantransfer Probleme zwischen Balde und JS gehabt und habe die Reise nach 4h Fehlersuche beendet, die Funktion hat aber immer am Anfang funktioniert.
+- DB search Algorythmus und Resultate in UI abbilden inkl. Letter Highlighting.
+- MongoDB einbindung
+- Modulierung Funktionen
+- JS basierte UI Elemente erstellen.
+- Backend logik (Req/ Res Cycle)
 
 
 5. ✔ Vertieft 
@@ -32,4 +35,7 @@ Laravel mit Blade scheint mir ein optimaler Einstieg ins Backend durch eine gros
 - Factorys & Seeders
 - Tests
 - Relationen & Modelle
+- Routebingind
+- RESTful Controllers
+- 
 

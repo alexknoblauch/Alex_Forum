@@ -28,4 +28,27 @@ class LikeController extends Controller
         return response()->noContent();
 
     }
+
+        public function getChatPartner(Request $request){
+        //Create MongoDB Collection
+        $collection = $this->getMongoCollection();
+
+
+        //Filtering
+        $userId = Auth::id(); 
+        $cursor = $collection->find(['participants' => $userId]);
+        $messages = iterator_to_array($cursor);
+
+            $userName = Auth::user()->name;
+            $messages = iterator_to_array($this->getMongoCollection()->find(['participants' => Auth::id()]));
+
+            foreach ($messages as $m) {
+                $m->chatPartner = collect($m->participants_name)->first(fn($n) => $n !== $userName);
+            }
+
+
+
+        //Response
+        return response()->json($messages);
+    }
 }

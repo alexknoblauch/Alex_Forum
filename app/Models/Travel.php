@@ -11,7 +11,6 @@ use App\Models\Gemeinde;
 
 class Travel extends Model
 {
-
     protected $guarded = [];
     use HasFactory;
 
@@ -30,6 +29,4 @@ class Travel extends Model
     public function likes(){
       return $this->morphMany(Like::class, 'likeable');
     }
-
- 
 }

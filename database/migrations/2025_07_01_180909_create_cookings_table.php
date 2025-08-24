@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedInteger('duration');
             $table->text('description');
             $table->text('ingredients')->nullable();
+            $table->string('image')->nullable();
             
             $table->index('user_id');
         });

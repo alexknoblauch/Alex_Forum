@@ -20,14 +20,15 @@ class CookingFactory extends Factory
     public function definition(): array
     {
 
-            $title = $this->faker->sentence(4);
+            $title = $this->faker->words(4, true);
 
         return [
             'title' => $title,
             'title_slug' => Str::slug($title),
             'duration' => $this->faker->randomElement([15, 20, 25, 30, 35, 40, 45, 50, 55, 60]),
             'description' => $this->faker->paragraph(4),
-            'user_id' => User::factory()
+            'user_id' => User::factory(),
+            'image' => 'uploads/default_img.png'
         ];
     }
 }
